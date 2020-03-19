@@ -17,9 +17,9 @@ module.exports = function transform(arr) {
             i++;
         } else if (element === deletePrev) {
             resultArray.pop(element);
-        } else if (element === doubleNext && i < arr.length - 1) {
+        } else if (element === doubleNext) {
             resultArray.push(arr[i + 1]);
-        } else if (element === doublePrev && i > 0) {
+        } else if (element === doublePrev) {
             resultArray.push(arr[i - 1]);
         } else {
             resultArray.push(element);
