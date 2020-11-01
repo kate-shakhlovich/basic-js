@@ -1,6 +1,11 @@
 class VigenereCipheringMachine {
-  constructor() {}
+  constructor(isDirect) {
+    this.isDirect = isDirect || isDirect === undefined;
+  }
   encrypt(message, key) {
+    if (!this.isDirect) {
+      message = message.split("").reverse().join("");
+    }
     const messageUpper = message.toUpperCase();
     const keyUpper = key.toUpperCase();
     let result = "";
@@ -18,11 +23,12 @@ class VigenereCipheringMachine {
       );
     }
     return result;
-    throw "Not implemented";
-    // remove line with error and write your code here
   }
 
   decrypt(encryptedMessage, key) {
+    if (!this.isDirect) {
+      encryptedMessage = encryptedMessage.split("").reverse().join("");
+    }
     const keyUpper = key.toUpperCase();
     let result = "";
     for (
@@ -45,9 +51,6 @@ class VigenereCipheringMachine {
       );
     }
     return result;
-
-    throw "Not implemented";
-    // remove line with error and write your code here
   }
 }
 
